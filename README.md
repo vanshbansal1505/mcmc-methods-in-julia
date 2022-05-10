@@ -6,10 +6,23 @@ We will use this repo for accepting assignment submissions.
 
 **Instructions:** 
 
-Submit only one notebook. 
+- Submit only one notebook. 
 
-Every file should be named according to the following convention:
+- Every file should be named according to the following convention:
 
-[Roll Number]_[First Name]
+  [Roll Number]_[First Name]
 
-Push your file to the Assignment_1 folder.
+- Push your file to the Assignment_1 folder.
+
+## Assignment 2:
+**Deadline**: 1:00 am, 11 May, 2022 (No further extensions)
+
+**Instructions:** 
+
+- Submit only one notebook. 
+
+- Every file should be named according to the following convention:
+
+  [Roll Number]_[First Name]
+
+- Push your file to the Assignment_2 folder.
