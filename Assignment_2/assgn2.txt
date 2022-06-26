@@ -1,0 +1,41 @@
+It is clear that the algorithm only outputs 0 or 1
+It suffices to show that it returns 1 with prob lambda
+First let us consider the probability of returning a number without going to step 1
+Since the algorithm returns if one of the two disjoint events A and B occur, where A is (C_1=1, C_2=1) and B is (C_1 =0, C_2 =1). Note that P(A) = c_x p_y, and P(B) = c_y p_x, and so P(return) = P(A ∐ B) = P(A)+P(B) = c_x p_y + c_y p_x
+Now let us calculate P(X=1)
+= ∑ _{n = 0}^∞ P(returning to step 1 n times and then returning 1)
+= ∑ _{n = 0}^∞ (1-c)^n c_x p_y
+= c_x p_y/c
+Hence proved
+Okay
+So g(x) where this theproposal, i.e. the uniform distribution on a p-hypercube
+Let g be the pdf of the proposal, i.e. the uniform distribution on a p-hypercube. Then, if  R^p ∋ x = (x_1, x_2, ..., x_p)
+g(x) = (∏ I(-1<x_i<1))/(2^p) =  f_U(x_i)
+where f_U is the pmf of uniform distribution.
+Thus g is the product of p U(-1,1) distributions.
+Algorithm:
+Draw U=(U_1, U_2, ..., U_p) from U(-1,1)×U(-1,1)×...×U(-1,1),
+If ||U|| < 1:
+  Return X = U
+else return to step 1
+Let f be the uniform distribution on the unit sphere, f = Γ (p/2 +1) I(||X|| < 1)
+Then c = f/g = 2^p/Γ(p/2+1) I(||X||<1)
+c = 2^p/Γ(p/2+1)
+f/cg = 2^p/Γ(p/2+1) I(||X||<1) 1/c = I(||X||<1)
+Sp the condition U(0,1)< f/cg in the CIT can be replaced by U(0,1) < I(||X||<1) which is almost surely equivalent to ||X||<1
+Note that f<= g*(ϕ(a) - ϕ (-a))
+and f/g =(ϕ(a) - ϕ (-a)) for x =0
+So c=sup f/g=(ϕ(a) - ϕ (-a))
+Also h(x) = f(x)/(c*g(x)) = (ϕ(a) - ϕ (-a)) I(-a<x<a) /c = I(-a<x<a)
+Thus the condition U<h can be replaced by U<I(-a<x<a) which is equivalent almost everywhere to -a<x<a.
+Thus we get the following
+Algorithm:
+Draw U ~ U(0,1)
+Draw Y ~ N(0,1)
+If (-a < x < -a)
+  return X = Y
+Else
+  go to step 1
+The difference is that c is larger for a = 4 and smaller for a = 1
+Thus the algorithms takes less iterations to return a value for a=1 than for a=4?
+(Since number of iterations is Geom(1/c), which has expectation c)
